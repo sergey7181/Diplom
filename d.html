@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="Bootstrap/bootstrap.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400,700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="Card/icon.jpg">
+  <title>Игра в карты "Пьяница"</title>
+</head>
+<body>
+  <div class="container mt-3 ml-4 ">
+    <div class="row">
+      <main class="col-10 pr-0">
+      <!--Верхний экран-->
+        <div class="row mb-3">
+          <div class="ekran mx-auto">
+            <p id="info">Кому сейчас повезет ?<br>Нажимайте на "Старт"</p>
+          </div>
+        </div> <!--Конец верхнего экрана-->      
+      <!--Колоды-->
+        <div class="row  justify-content-around mb-3 ml-0 mr-0">
+        <!--Первая колода-->
+          <section class="col-3">          
+            <div id="col_1" class="card card2">
+              <img src="Card/37.jpg" class="img-fluid" alt="Карта">
+            </div>
+          </section>  
+        <!--Вторая колода-->
+          <section class="col-3">        
+            <div id="col_2" class="card" hidden>
+            </div>
+          </section>                                        
+        <!--Третья колода--> 
+          <section class="col-3" >     
+            <div id="col_3" class="card" hidden>
+            </div>
+          </section>                                        
+        <!--Четвертая колода-->
+          <section class="col-3">        
+            <div id="col_4" class="card card2">
+              <img src="Card/37.jpg" class="img-fluid" alt="Карта">
+            </div>
+          </section>
+        </div> <!--Конец колод-->
+      <!--Кнопка бросания карт-->                   
+        <div class="col-12 d-flex brosoc"  onclick="brosoc()">         
+          <span>Бросаем карту</span>
+        </div>           
+        <button class="col-3 btn btn-lg btn-block start" onclick="start()">Старт</button>       
+      </main> <!--Конец основного контента-->
+    <!--Боковой экран-->  
+      <aside class="col-1 d-flex  pl-0 pr-0">        
+        <div class="ekran2" hidden>
+          <div>
+            <span>Туз:    </span> <span id="info_t">0</span><br>
+            <span>Король: </span> <span id="info_k">0</span><br>
+            <span>"6":    </span> <span id="info_6">0</span><br>
+            <span>Всего:  </span> <span id="info_V">0</span><br> 
+          </div>
+        </div>
+      </aside> <!--Конец бокового экрана-->
+    </div> <!--Конец контейнера row-->    
+  </div> <!--Конец контейнера обертки-->
+
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+   integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
+   integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>  
+  <script src="script.js"></script>
+</body>
+</html>
