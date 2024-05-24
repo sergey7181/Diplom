@@ -9,7 +9,6 @@ let info_6 = document.getElementById("info_6"); // Кол-во "6" у игрок
 let info_V = document.getElementById("info_V"); // Всего карт у игрока 
 let vziatka = [];                               // Взятка на столе
 
-
 function start() {
   avt =  []; user = []; vziatka = [];
   document.getElementById("col_1").hidden = false;     // Колода карт автора на столе 
@@ -18,14 +17,21 @@ function start() {
   col3.hidden = true;
   let col4 = document.getElementById("col_4");         // Колода карт игрока на столе
   col4.hidden = false;
-  col4.style.opacity = 1;
-  document.querySelector(".ekran2").hidden = false;    // Включаем боковой экран      
-  document.querySelector(".ekran2").style.top = col4.getBoundingClientRect().top - 13 + "px";  // Назначаем местоположение бокового экрана 
+  col4.style.opacity = 1; 
   document.querySelector(".brosoc").disabled = false;  // Активация кнопки "Бросаем карту"
+
+  document.querySelector(".ekran2").hidden = false;    // Включаем боковой экран
+  mesto_ekran2();                                      // Начальное местоположение бокового экрана 
+  window.addEventListener('resize', mesto_ekran2);     // Изменяем местоположение бокового экрана при изменении max-width
+
   razdacha_card();                                     // Раздаем карты автору и игроку
   infor();                                             // Вывод инф-ии на боковой экран 
   inf_console();                                       // Вывод колоды карт автора и игрока в консоль
   info.innerText = `Карты розданы\nБросайте карту`;
+
+  function mesto_ekran2() {                            // Назначаем местоположение бокового экрана    
+    document.querySelector(".ekran2").style.top = col4.getBoundingClientRect().top - 13 + "px";
+  }
 }  
 
 function brosoc() {
@@ -95,7 +101,7 @@ function infor() {                // Вывод инф-ии на боковой 
   info_t.innerText = schit("8");
   info_k.innerText = schit("7");
   info_6.innerText = schit("0");
-  info_V.innerText = user.length;;
+  info_V.innerText = user.length;
 
   function schit(a) {              // Вычисляет кол-во карт старшинства 'a'
     let st = user.filter( (item) => { return item.includes(a); });
