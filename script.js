@@ -11,7 +11,7 @@ let info_V = document.getElementById("info_V"); // Всего карт у игр
 let spor = false;                               // Если "Спор"- true, если нет- false (для "растворение" взятки)
 
 function start() {
-  avt =  []; user = []; vziatka = [];
+  avt =  []; user = []; vziatka = []; 
   document.getElementById("col_1").hidden = false;     // Колода карт автора на столе 
   document.getElementById("col_1").style.opacity = 1;
   col2.hidden = true;
@@ -19,7 +19,8 @@ function start() {
   let col4 = document.getElementById("col_4");         // Колода карт игрока на столе
   col4.hidden = false;
   col4.style.opacity = 1; 
-  document.querySelector(".brosoc").disabled = false;  // Активация кнопки "Бросаем карту"
+
+  document.querySelector(".brosoc").setAttribute('onclick', "brosoc()");  // Активация кнопки "Бросаем карту"
 
   document.querySelector(".ekran2").hidden = false;    // Включаем боковой экран
   mesto_ekran2();                                      // Начальное местоположение бокового экрана 
