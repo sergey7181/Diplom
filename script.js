@@ -9,6 +9,7 @@ let info_k = document.getElementById("info_k"); // Кол-во королей у
 let info_6 = document.getElementById("info_6"); // Кол-во "6" у игрока  
 let info_V = document.getElementById("info_V"); // Всего карт у игрока 
 let spor = false;                               // Если "Спор"- true, если нет- false (для "растворение" взятки)
+//let col3_img = col3.firstChild.nextSibling;     // Карта игрока на столе
 
 function start() {
   avt =  []; user = []; vziatka = []; 
@@ -41,7 +42,7 @@ function brosoc() {
   if (!spor) {                    // Если не "Спор"
     $(col2).fadeOut(900);         // "Растворение" взятки       
     $(col3).fadeOut(900);
-  }  
+  }
   setTimeout(()=> {               // Асинхронное выполнение, чтобы успела выполниться fadeOut()
     while(true) {
       spor = false;
@@ -67,13 +68,16 @@ function brosoc() {
       vziatka.push(`${avt0}`);               // Записываем карты в массив взятки на столе 
       vziatka.push(`${user0}`);
 
-      col2.style.removeProperty('display');  // Включаем видимость взятки на столе 
-      col3.style.display = 'block';           
-
-      col2.innerHTML = `<img src="Card/${avt0}.gif" class="img-fluid" alt="Карта">`;  // Бросаем карты на стол
+//    col3_img.setAttribute('src', `Card/${user0}.gif`);                              // Бросаем карты на стол
+      col2.innerHTML = `<img src="Card/${avt0}.gif" class="img-fluid" alt="Карта">`;  
       col3.innerHTML = `<img src="Card/${user0}.gif" class="img-fluid" alt="Карта">`;
+              
+//    col2.style.removeProperty('display');  // Включаем видимость взятки на столе 
+//    col3.style.display = 'block';          // Отображается на экране белый прямоугольник перед загрузкой изображения
       col2.hidden = false;
       col3.hidden = false;
+      $(col2).fadeIn(900);                   // Постепенное появление взятки
+      $(col3).fadeIn(900);
 
       let avt0_int = parseInt(avt0);         // Считываем цифру карты отвечающую за старшинство    
       let user0_int = parseInt(user0);
